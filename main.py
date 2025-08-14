@@ -468,12 +468,97 @@ from functools import reduce
 
 
 # Task. 31
-def reverse_string(s):
-    left, right = 0, len(lst) - 1
-    while left < right:
-        s[left], s[right] = s[right], s[left]
-        left += 1
-        right -= 1
+# def reverse_string(s):
+#     left, right = 0, len(lst) - 1
+#     while left < right:
+#         s[left], s[right] = s[right], s[left]
+#         left += 1
+#         right -= 1
+#
+# lst = ["H","a","n","n","a","h"]
+# print(reverse_string(lst))
 
-lst = ["H","a","n","n","a","h"]
-print(reverse_string(lst))
+
+# Task. 31
+# def reverse_string(lst):
+#     left , right = 0, len(lst) - 1
+#     while left < right:
+#         lst[left], lst[right] = lst[right], lst[left]
+#         left += 1
+#         right -= 1
+#
+#     return lst
+#
+# lst = ["H", "a", "n", "n", "a", "h"]
+# print(reverse_string(lst))
+
+
+# def clock_angle(hour, minutes):
+#     hour_angle = (hour % 12 + minutes / 60) * 30
+#     minute_angle = minutes * 6
+#     angle = abs(hour_angle - minute_angle)
+#     return min(angle, 360 - angle), angle
+#
+# hour, minute = map(int, input().split())
+# print(clock_angle(hour, minute))
+
+
+# def intersect(lst1, lst2):
+#     from collections import defaultdict
+#     freq = defaultdict(int)
+#     result = []
+#
+#     for item in lst1:
+#         freq[item] += 1
+#
+#     for item in lst2:
+#         if freq[item] > 0:
+#             result.append(item)
+#             freq[item] -= 1
+#
+#     return result
+#
+#
+# lst1, lst2 = [1,2,2,1], [2,2]
+# print(intersect(lst1, lst2))
+
+
+# def unique_intersection(nums1, nums2):
+#     return list(set(nums1) & set(nums2))
+#
+# nums1, nums2 = [1,2,2,1], [2,2]
+# print(unique_intersection(nums1, nums2))
+
+
+# def max_power(s):
+#     for i in range(len(s)):
+#         for j in range(i, len(s)):
+#             substring = s[i:j + 1]
+#     return s
+#
+# s = 'meet'
+# print(max_power(s))
+
+
+# def delete_extra_nums(lst):
+#     new_lst = []
+#     for i in range(len(lst)):
+#         if i not in new_lst:
+#             new_lst.append(lst[i])
+#     return f'список: {new_lst}'
+#
+# lst = [1, 2, 2, 3, 4]
+# print(delete_extra_nums(lst))
+
+# def min_value(dct):
+#     return max(dct.items(), key=lambda x: x[1])
+#
+# dct = {"a": 10, "b": 20, "c": 5}
+# print(min_value(dct))
+
+# def combine_dict(dct1, dct2):
+#     return {**dct1, **dct2}
+#
+# dct1, dct2 = {"a": 10, "b": 20, "c": 5}, {"d": 15, "e": 25, "f": 35}
+# print(combine_dict(dct1, dct2))
+
