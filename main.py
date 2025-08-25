@@ -156,6 +156,7 @@
 - h = 3, bounce = 1, window = 1.5, result is -1 
 (Condition 2) not fulfilled).
 """
+from collections import defaultdict, Counter
 from functools import reduce
 
 #     if h <= 0 or bounce <= 0 or bounce >= 1 or window >= h:
@@ -561,4 +562,158 @@ from functools import reduce
 #
 # dct1, dct2 = {"a": 10, "b": 20, "c": 5}, {"d": 15, "e": 25, "f": 35}
 # print(combine_dict(dct1, dct2))
+
+# Easy
+# 1.1
+# def reverse_str(_str):
+#     new_str = ""
+#     for i in range(len(_str)-1, -1, -1):
+#         new_str += _str[i]
+#
+#     return new_str, _str[::-1], ''.join(reversed(_str))
+#
+# _str = 'hello'
+# print(reverse_str(_str))
+
+# 1.2
+# def palindrome(_str):
+#     left = 0
+#     right = 0
+
+#     while left < right:
+#         if _str[left] != _str[right]:
+#             return False
+#         left += 1
+#         right -= 1
+#     return _str[::-1] == _str, True, all(a == b for a, b in zip(_str, reversed(_str)))
+#
+# _str = 'шалаш'
+# print(palindrome(_str))
+
+# 1.3
+# def fizzbuzz(num):
+#     if num % 3 == 0:
+#         return 'Fizz'
+#     elif num % 5 == 0:
+#         return 'Buzz'
+#     elif num % 3 == 0 and num % 5 == 0:
+#         return 'FizzBuzz'
+#     else:
+#         return num
+#
+# print(fizzbuzz(10))
+
+# 1.4
+# def sum_nums(lst):
+#     return reduce(lambda x, y: x + y, lst), sum(lst)
+#
+# lst = [1, 2, 3, 4, 5]
+# print(sum_nums(lst))
+
+# 1.5
+# def count_vowel(_str):
+#     vowels = 'aeiouAEIOUаеёиоуыэюяАЕЁИОУЫЭЮЯ'
+#     counter = 0
+#     for i in _str:
+#         if i in vowels:
+#             counter += 1
+#     return counter
+#
+# _str = 'hello'
+# print(count_vowel(_str))
+
+
+# Middle
+# 2.1
+# def second_max(lst):
+#     lst.sort(reverse=True)
+#     second_max_num = lst[1]
+#     return second_max_num
+#
+# lst = [1, 2, 3, 4, 5]
+# print(second_max(lst))
+
+# 2.2
+# def unique_words(_str):
+#     unique_w = []
+#     counter = {}
+#     for i in _str.lower().split():
+#         if i not in unique_w:
+#             unique_w.append(i)
+#
+#     words = _str.lower().split()
+#     print(words)
+#     unique_words = set(words)
+#     return unique_w, list(unique_words)
+#
+# _str = 'hello world hello'
+# print(unique_words(_str))
+
+# 2.3
+# def freq_letters(_str):
+    # from collections import Counter
+    # return dict(Counter(_str))
+    # counter = {}
+    # for char in _str:
+    #     counter[char] = counter.get(char, 0) + 1
+
+    # return counter
+
+# _str = 'hello world, hello you'
+# print(freq_letters(_str))
+
+# 2.5
+# def merge_dict(dict1, dict2):
+#     merged_dict = {**dict1, **dict2}
+#     for k, v in dict1.items():
+#         if k in dict2:
+#             merged_dict[k] = dict1[k] + dict2[k]
+#     return merged_dict
+#
+# dict1, dict2 = {"a": 10, "b": 20, "c": 5}, {"a": 15, "e": 25, "f": 35}
+# print(merge_dict(dict1, dict2))
+
+# Hard
+#  SQL
+# select name from users where age > 18 group_by name order_by asc
+
+# def count_words(text: str) -> dict[str, int]:
+    # import string
+    # count = {}
+    # text = text.translate(str.maketrans('', '', string.punctuation))
+    # for i in text.lower().split():
+        # count[i] = count.get(i, 0) + 1
+    # return count
+
+# text = "Hello, world! Hello Python."
+# print(count_words(text))
+
+
+# def is_palindrome(s: str) -> bool:
+#     s = ''.join(char.lower() for char in s if char.isalnum())
+#     return s == s[::-1]
+#
+# print(is_palindrome("A man a plan a canal Panama"))
+# print(is_palindrome("Python"))
+
+
+def two_sum(nums: list[int], target: int) -> tuple[int, int] | None:
+    for i in range(len(nums) - 1):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
+                return (i, j)
+    return None
+
+nums = [1, 2, 3, 4, 5, 6]
+target = 3
+print(two_sum(nums, target))
+
+
+# def most_common_word(words: list[str]):
+#     common_words = Counter(words).most_common()
+#     return common_words
+#
+# words = ["python", "java", "python", "c++", "python", "java"]
+# print(most_common_word(words))
+
 
